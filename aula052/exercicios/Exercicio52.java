@@ -1,5 +1,6 @@
 package aula052.exercicios;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Exercicio52 {
@@ -10,16 +11,20 @@ public class Exercicio52 {
     menu(agenda, contato);
   }
 
-  public static int opicao(Scanner scanner) {
+  public static int opicao(Scanner sc) {
+    sc = new Scanner(System.in);
     try {
-      int opcao = scanner.nextInt();
-
+      int opcao = sc.nextInt();
       if (opcao == 1 || opcao == 2 || opcao == 3) {
         return opcao;
       } else if (opcao != 1 || opcao != 2 || opcao != 3) {
         throw new Exception("Opção inválida!");
       }
 
+    } catch (InputMismatchException e) {
+      System.out.println("Opção inválida!");
+      e.getMessage();
+      e.getStackTrace();
     } catch (Exception e) {
       System.out.println("Opção inválida!");
       e.getMessage();
@@ -40,14 +45,16 @@ public class Exercicio52 {
           System.exit(0);
 
         case 1:
+          System.out.println("Digite o nome do contato:");
           try {
-            System.out.println("Digite o nome do contato:");
             String nome = scanner.nextLine();
-            agenda.buscaPorNome(nome);
+            System.out.println(agenda.buscaPorNome(nome));
             menu(agenda, contato);
           } catch (NaoEncontradoException e) {
             System.out.print(e.toString());
             e.printStackTrace();
+          } finally {
+            menu(agenda, contato);
           }
           break;
 
@@ -65,6 +72,8 @@ public class Exercicio52 {
           } catch (AgendaCheiaException e) {
             System.out.print(e.getMessage());
             e.printStackTrace();
+          } finally {
+            menu(agenda, contato);
           }
           break;
 

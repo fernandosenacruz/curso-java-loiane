@@ -9,22 +9,23 @@ public class Agenda {
 
   /**
    * @param contato
+   * @return
    * @throws AgendaCheiaException
    */
   public void add(Contato contato) throws AgendaCheiaException {
-    boolean agendaCheia = true;
-
-    if (agendaCheia) {
-      throw new AgendaCheiaException();
-    }
+    boolean cheia = true;
 
     for (int i = 0; i < contatos.length; i++) {
-      if (contatos[i] != null) {
-        contatos[i] = contato;
-        agendaCheia = false;
+      if (contatos[i] == null) {
+        this.contatos[i] = contato;
+        cheia = false;
+        break;
       }
     }
 
+    if (cheia) {
+      throw new AgendaCheiaException();
+    }
   }
 
   /**
@@ -32,14 +33,14 @@ public class Agenda {
    * @return the contato
    * @throws NaoEncontradoException
    */
-  public Contato buscaPorNome(String nome) throws NaoEncontradoException {
+  public String buscaPorNome(String nome) throws NaoEncontradoException {
     for (Contato contato : contatos) {
-      if (contato != null && contato.getNome().equalsIgnoreCase(nome)) {
-        return contato;
+      if (contato != null && contato.getNome().trim().equalsIgnoreCase(nome)) {
+        return contato.toString();
       }
     }
-
     throw new NaoEncontradoException(nome);
+
   }
 
   @Override
@@ -47,7 +48,9 @@ public class Agenda {
     String result = "";
 
     for (Contato contato : contatos) {
-      result += contato.toString() + "\n";
+      if (contato != null) {
+        result += contato.toString() + "\n";
+      }
     }
 
     return result;
