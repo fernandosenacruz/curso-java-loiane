@@ -1,4 +1,4 @@
-package aula038.exercises;
+package aula038.exercicios;
 
 public class Conta {
   private String tipo;

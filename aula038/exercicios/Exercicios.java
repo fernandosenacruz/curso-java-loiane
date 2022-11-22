@@ -1,6 +1,6 @@
-package aula038.exercises;
+package aula038.exercicios;
 
-public class Exercises {
+public class Exercicios {
   public static void main(String[] args) {
     ContaBancaria conta01 = new ContaBancaria();
     Conta numConta = new Conta();
