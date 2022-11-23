@@ -17,7 +17,7 @@ public class Agenda {
 
     for (int i = 0; i < contatos.length; i++) {
       if (contatos[i] == null) {
-        this.contatos[i] = contato;
+        contatos[i] = new Contato(contato);
         cheia = false;
         break;
       }
@@ -26,6 +26,17 @@ public class Agenda {
     if (cheia) {
       throw new AgendaCheiaException();
     }
+  }
+
+  public String listarContatos() throws Exception {
+    for (Contato contato : contatos) {
+      if (contato != null) {
+        return contato.toString() + "\n";
+      } else {
+        throw new Exception("Não há contatos cadastrados ainda");
+      }
+    }
+    return null;
   }
 
   /**

@@ -42,7 +42,12 @@ public class Exercicio52 {
 
       switch (menu) {
         case 0:
-          System.exit(0);
+          try {
+            System.out.println(agenda.listarContatos());
+          } catch (Exception e) {
+            System.out.println(e.getMessage());
+          }
+          menu(agenda, contato);
 
         case 1:
           System.out.println("Digite o nome do contato:");
@@ -82,6 +87,7 @@ public class Exercicio52 {
 
         default:
           System.exit(0);
+
       }
     }
   }

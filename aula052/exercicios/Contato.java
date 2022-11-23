@@ -8,8 +8,16 @@ public class Contato {
   private int contador;
 
   public Contato() {
-    contador++;
-    _id = contador;
+    this.contador++;
+    this._id = contador;
+  }
+
+  public Contato(Contato contato) {
+    this.nome = contato.nome;
+    this.telefone = contato.telefone;
+    this.email = contato.email;
+    this.contador++;
+    this._id = contador;
   }
 
   /**
@@ -63,7 +71,7 @@ public class Contato {
 
   @Override
   public String toString() {
-    return "Contato [_id: " + _id + ", nome: " + nome + ", telefone: " + telefone + ", email: " + email + ", contador: "
-        + contador + "]";
+    return "Contato\n_id: " + _id + "\nnome: " + nome + "\ntelefone: " + telefone + "\nemail: " + email + "\ncontador: "
+        + contador;
   }
 }
