@@ -25,7 +25,7 @@ public class ThreadRunnable implements Runnable {
     } catch (InterruptedException e) {
       e.getStackTrace();
     } finally {
-      System.out.println("Threda finalizada!");
+      System.out.println("Thred " + nome + " finalizada!");
     }
   }
 
