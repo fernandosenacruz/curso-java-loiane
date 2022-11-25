@@ -7,7 +7,7 @@ public class Tokenizer {
   public static void main(String[] args) {
 
     String lorenIpsum1 = "Lorem ipsum dolor sit amet consectetur adipisicing elit.";
-    String lorenIpsum2 = "Maxime mollitia, molestia laborum numquam blanditiis harum quisquam eius sed odit!";
+    String lorenIpsum2 = "Maxime mollitia, blanditiis harum quisquam eius sed odit!";
     String lorenIpsum3 = "Provident similique accusantium nemo autem.";
     String lorenIpsum4 = "Veritatis obcaecati aliquam nihil, eveniet aliquid culpa officia aut?";
 
